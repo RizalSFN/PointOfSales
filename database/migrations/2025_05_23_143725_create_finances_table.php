@@ -13,16 +13,13 @@ return new class extends Migration
     {
         Schema::create('finances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('user_shift_id');
-            $table->unsignedBigInteger('category_finance_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_shift_id')->constrained();
+            $table->foreignId('category_finance_id')->constrained();
             $table->decimal('saldo_awal');
             $table->decimal('saldo_akhir');
             $table->string('keterangan');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('user_shift_id')->references('id')->on('user_shifts');
-            $table->foreign('category_finance_id')->references('id')->on('category_finances');
         });
     }
 

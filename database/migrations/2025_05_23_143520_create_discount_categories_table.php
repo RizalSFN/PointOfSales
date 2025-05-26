@@ -13,15 +13,11 @@ return new class extends Migration
     {
         Schema::create('discount_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('user_shift_id');
-            $table->unsignedBigInteger('discount_id');
-            $table->unsignedBigInteger('category_menu_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_shift_id')->constrained();
+            $table->foreignId('discount_id')->constrained();
+            $table->foreignId('category_menu_id')->constrained();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('user_shift_id')->references('id')->on('user_shifts');
-            $table->foreign('discount_id')->references('id')->on('discounts');
-            $table->foreign('category_menu_id')->references('id')->on('category_menus');
         });
     }
 

@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('riwayats', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('user_shift_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_shift_id')->constrained();
             $table->enum('aksi', ['CREATE', 'UPDATE', 'DELETE']);
             $table->enum('entity', ['user', 'menu', 'discount', 'finance', 'order', 'setting']);
             $table->unsignedBigInteger('entity_id');
             $table->string('deskripsi');
             $table->timestamp('created_at');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('user_shift_id')->references('id')->on('user_shifts');
         });
     }
 
