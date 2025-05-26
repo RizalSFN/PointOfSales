@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('sub_total');
             $table->decimal('sub_total_diskon');
             $table->foreignId('metode_pembayaran_id')->constrained();
+            $table->enum('jenis', ['dine in', 'take away']);
             $table->decimal('tunai')->nullable();
             $table->decimal('kembalian')->nullable();
             $table->enum('status', ['pending', 'selesai', 'batal']);
