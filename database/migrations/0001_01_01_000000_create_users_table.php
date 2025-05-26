@@ -36,6 +36,18 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('user_shifts', function (Blueprint $table) {
+            $table->id();
+            $table->enum('jenis_shift', ['siang', 'malam']);
+            $table->time('waktu_mulai');
+            $table->time('waktu_selesai');
+            $table->date('tanggal');
+            $table->boolean('is_done');
+            $table->decimal('total_amount');
+            $table->decimal('total_discount');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -46,5 +58,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('user_shifts');
     }
 };

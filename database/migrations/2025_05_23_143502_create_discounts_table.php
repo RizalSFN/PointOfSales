@@ -13,7 +13,18 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_shift_id');
+            $table->string('nama');
+            $table->enum('tipe', ['menu', 'category', 'total', 'custom']);
+            $table->boolean('is_percentage');
+            $table->decimal('minimal_transaksi')->nullable();
+            $table->date('berlaku_dari');
+            $table->date('berlaku_sampai');
+            $table->enum('status', ['aktif', 'nonaktif']);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_shift_id')->references('id')->on('user_shifts');
         });
     }
 

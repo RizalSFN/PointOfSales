@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('category_menus', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('gambar');
             $table->timestamps();
         });
     }

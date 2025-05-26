@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('category_finances', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
             $table->timestamps();
         });
     }
