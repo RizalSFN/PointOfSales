@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('user_shift_id')->constrained();
-            $table->unsignedBigInteger('category_menu_id');
+            $table->foreignId('category_menu_id')->constrained();
             $table->string('nama');
             $table->string('deskripsi');
             $table->string('gambar');
-            $table->decimal('harga');
-            $table->decimal('stok');
+            $table->decimal('harga')->default(0);
+            $table->decimal('stok')->default(0);
             $table->enum('status', ['aktif', 'nonaktif']);
             $table->timestamps();
         });

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('app_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('app_name');
-            $table->string('app_logo');
-            $table->string('app_email');
-            $table->string('app_phone');
-            $table->string('app_address');
-            $table->string('app_description');
+            $table->string('app_name')->nullable();
+            $table->string('app_logo')->nullable();
+            $table->string('app_email')->nullable();
+            $table->string('app_phone')->nullable();
+            $table->string('app_address')->nullable();
+            $table->string('app_description')->nullable();
             $table->boolean('is_maintenance')->default(false);
             $table->string('maintenance_message')->nullable();
             $table->timestamps();

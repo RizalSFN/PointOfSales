@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('customer_name')->nullable();
             $table->date('tanggal');
             $table->decimal('sub_total');
-            $table->decimal('sub_total_diskon');
+            $table->decimal('sub_total_diskon')->nullable();
+            $table->decimal('total')->nullable();
             $table->foreignId('metode_pembayaran_id')->constrained();
             $table->enum('jenis', ['dine in', 'take away']);
             $table->decimal('tunai')->nullable();

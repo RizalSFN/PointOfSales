@@ -41,11 +41,11 @@ return new class extends Migration
             $table->id();
             $table->enum('jenis_shift', ['siang', 'malam']);
             $table->time('waktu_mulai');
-            $table->time('waktu_selesai');
+            $table->time('waktu_selesai')->nullable();
             $table->date('tanggal');
-            $table->boolean('is_done');
-            $table->decimal('total_amount');
-            $table->decimal('total_discount');
+            $table->enum('status', ['berlangsung', 'selesai']);
+            $table->decimal('total_amount')->default(0);
+            $table->decimal('total_discount')->default(0);
             $table->timestamps();
         });
     }
