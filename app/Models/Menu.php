@@ -32,7 +32,7 @@ class Menu extends Model
 
     public function user_shifts()
     {
-        return $this->belongsTo(UserShift::class, 'user_shift_id', 'id');
+        return $this->hasOne(UserShift::class, 'user_shift_id', 'id');
     }
 
     public function category_menus()
