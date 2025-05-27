@@ -17,6 +17,14 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+
+    protected $table = 'users';
+
+    public const ROLE_ADMIN = 'admin';
+    public const ROLE_SUPERADMIN = 'superadmin';
+    public const STATUS_AKTIF = 'aktif';
+    public const STATUS_NONAKTIF = 'nonaktif';
+
     protected $fillable = [
         'nama',
         'email',
@@ -45,5 +53,10 @@ class User extends Authenticatable
         return [
             'password' => 'hashed',
         ];
+    }
+
+    public function menu()
+    {
+        return $this->hasMany(Menu::class, 'id', 'user_id');
     }
 }

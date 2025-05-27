@@ -40,9 +40,8 @@ return new class extends Migration
         Schema::create('user_shifts', function (Blueprint $table) {
             $table->id();
             $table->enum('jenis_shift', ['siang', 'malam']);
-            $table->time('waktu_mulai');
-            $table->time('waktu_selesai')->nullable();
-            $table->date('tanggal');
+            $table->dateTime('waktu_mulai');
+            $table->dateTime('waktu_selesai')->nullable();
             $table->enum('status', ['berlangsung', 'selesai']);
             $table->decimal('total_amount')->default(0);
             $table->decimal('total_discount')->default(0);
