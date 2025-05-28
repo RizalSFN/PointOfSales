@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('user_shift_id')->constrained();
             $table->string('customer_name')->nullable();
-            $table->date('tanggal');
+            $table->dateTime('waktu');
             $table->decimal('sub_total');
             $table->decimal('sub_total_diskon')->nullable();
             $table->decimal('total')->nullable();

@@ -19,8 +19,8 @@ return new class extends Migration
             $table->enum('tipe', ['menu', 'category', 'total', 'custom']);
             $table->boolean('is_percentage');
             $table->decimal('minimal_transaksi')->nullable();
-            $table->date('berlaku_dari');
-            $table->date('berlaku_sampai');
+            $table->dateTime('berlaku_dari');
+            $table->dateTime('berlaku_sampai');
             $table->enum('status', ['aktif', 'nonaktif']);
             $table->timestamps();
         });

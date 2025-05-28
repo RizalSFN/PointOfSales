@@ -55,8 +55,38 @@ class User extends Authenticatable
         ];
     }
 
-    public function menu()
+    public function menus()
     {
         return $this->hasMany(Menu::class, 'id', 'user_id');
+    }
+
+    public function finances()
+    {
+        return $this->hasMany(Finance::class, 'id', 'user_id');
+    }
+
+    public function discount_menus()
+    {
+        return $this->hasMany(DiscountMenu::class, 'id', 'user_id');
+    }
+
+    public function discount_categories()
+    {
+        return $this->hasMany(DiscountCategory::class, 'id', 'user_id');
+    }
+
+    public function stok_menus()
+    {
+        return $this->hasMany(StokMenu::class, 'id', 'user_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'id', 'user_id');
+    }
+
+    public function riwayats()
+    {
+        return $this->hasMany(Riwayat::class, 'id', 'user_id');
     }
 }

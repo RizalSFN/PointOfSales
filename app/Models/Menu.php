@@ -40,6 +40,21 @@ class Menu extends Model
         return $this->belongsTo(CategoryMenu::class, 'category_menu_id', 'id');
     }
 
+    public function discount_menus()
+    {
+        return $this->hasMany(DiscountMenu::class, 'id', 'menu_id');
+    }
+
+    public function stok_menus()
+    {
+        return $this->hasMany(StokMenu::class, 'id', 'menu_id');
+    }
+
+    public function order_details()
+    {
+        return $this->hasMany(OrderDetail::class, 'id', 'menu_id');
+    }
+
     public function getFormattedHarga()
     {
         return 'Rp ' . number_format($this->harga, 0, ',', '.');

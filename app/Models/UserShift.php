@@ -27,4 +27,39 @@ class UserShift extends Model
         'waktu_mulai' => 'datetime',
         'waktu_selesai' => 'datetime'
     ];
+
+    public function menus()
+    {
+        return $this->hasOne(Menu::class, 'id', 'user_shift_id');
+    }
+
+    public function finances()
+    {
+        return $this->hasOne(Finance::class, 'id', 'user_shift_id');
+    }
+
+    public function discount_menus()
+    {
+        return $this->hasOne(DiscountMenu::class, 'id', 'user_shift_id');
+    }
+
+    public function discount_categories()
+    {
+        return $this->hasOne(DiscountCategory::class, 'id', 'user_shidt_id');
+    }
+
+    public function stok_menus()
+    {
+        return $this->hasOne(StokMenu::class, 'id', 'user_shift_id');
+    }
+
+    public function orders()
+    {
+        return $this->hasOne(Order::class, 'id', 'user_shift_id');
+    }
+
+    public function riwayats()
+    {
+        return $this->hasOne(Riwayat::class, 'id', 'user_shift_id');
+    }
 }
