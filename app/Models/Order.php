@@ -75,4 +75,19 @@ class Order extends Model
     {
         return $this->hasMany(OrderDetail::class, 'id', 'order_id');
     }
+
+    public function scopeOrderToday($query)
+    {
+        return $query->whereDate('created_at', today());
+    }
+
+    public function scopeOrderBatal($query)
+    {
+        return $query->where('status', 'batal');
+    }
+
+    public function scopeOrderSelesai($query)
+    {
+        return $query->where('status', 'selesai');
+    }
 }

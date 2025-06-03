@@ -62,4 +62,14 @@ class UserShift extends Model
     {
         return $this->hasOne(Riwayat::class, 'id', 'user_shift_id');
     }
+
+    public function scopeShiftSiang($query)
+    {
+        return $this->where('jenis_shift', 'siang');
+    }
+
+    public function scopeShiftMalam($query)
+    {
+        return $this->where('jenis_shift', 'malam');
+    }
 }
