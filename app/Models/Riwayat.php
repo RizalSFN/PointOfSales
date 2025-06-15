@@ -34,4 +34,19 @@ class Riwayat extends Model
     {
         return $this->hasOne(UserShift::class, 'user_shift_id', 'id');
     }
+
+    public function scopeRiwayatEntity($query, $entity)
+    {
+        return $query->where('entity', $entity);
+    }
+
+    public function scopeRiwayatAksi($query, $aksi)
+    {
+        return $query->where('aksi', $aksi);
+    }
+
+    public function scopeUserId($query, $userId)
+    {
+        return $query->where('user_id', $userId);
+    }
 }

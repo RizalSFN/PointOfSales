@@ -38,4 +38,14 @@ class Finance extends Model
     {
         return 'Rp ' . number_format($this->saldo_akhir, 0, ',', '.');
     }
+
+    public function scopeFinanceUserId($query, $userId)
+    {
+        return $query->where('user_id', $userId);
+    }
+
+    public function scopeFinanceToday($query)
+    {
+        return $query->where('created_at', today());
+    }
 }

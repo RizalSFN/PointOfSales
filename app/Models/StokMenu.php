@@ -31,4 +31,9 @@ class StokMenu extends Model
     {
         return $this->belongsTo(Menu::class, 'menu_id', 'id');
     }
+
+    public function scopeStokMenuTipe($query, $tipe)
+    {
+        return $query->where('tipe', $tipe);
+    }
 }

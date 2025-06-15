@@ -81,13 +81,13 @@ class Order extends Model
         return $query->whereDate('created_at', today());
     }
 
-    public function scopeOrderBatal($query)
+    public function scopeOrderStatus($query, $status)
     {
-        return $query->where('status', 'batal');
+        return $query->where('status', $status);
     }
 
-    public function scopeOrderSelesai($query)
+    public function scopeOrderJenis($query, $jenis)
     {
-        return $query->where('status', 'selesai');
+        return $query->where('jenis', $jenis);
     }
 }

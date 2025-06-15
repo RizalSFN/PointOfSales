@@ -46,4 +46,14 @@ class Discount extends Model
     {
         return $this->hasMany(DiscountCategory::class, 'id', 'discount_id');
     }
+
+    public function scopeDiscountStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
+
+    public function scopeDiscountTipe($query, $tipe)
+    {
+        return $query->where('tipe', $tipe);
+    }
 }

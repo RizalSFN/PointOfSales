@@ -21,4 +21,9 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Menu::class, 'menu_id', 'id');
     }
+
+    public function scopeOrderDetail($query, $orderId)
+    {
+        return $query->where('order_id', $orderId);
+    }
 }

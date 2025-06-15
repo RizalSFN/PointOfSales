@@ -63,13 +63,18 @@ class UserShift extends Model
         return $this->hasOne(Riwayat::class, 'id', 'user_shift_id');
     }
 
-    public function scopeShiftSiang($query)
+    public function scopeUserShift($query, $shift)
     {
-        return $this->where('jenis_shift', 'siang');
+        return $query->where('jenis_shift', $shift);
     }
 
-    public function scopeShiftMalam($query)
+    public function scopeUserShiftStatus($query, $status)
     {
-        return $this->where('jenis_shift', 'malam');
+        return $query->where('status', $status);
+    }
+
+    public function scopeUserShiftToday($query)
+    {
+        return $query->where('created_at', today());
     }
 }

@@ -24,4 +24,9 @@ class MetodePembayaran extends Model
     {
         return $this->hasMany(Order::class, 'id', 'metode_pembayaran_id');
     }
+
+    public function scopeMetodePembayaranStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
 }

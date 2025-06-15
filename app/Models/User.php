@@ -89,4 +89,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Riwayat::class, 'id', 'user_id');
     }
+
+    public function scopeUserStatus($query, $status)
+    {
+        return $query->where('status', $status);
+    }
 }

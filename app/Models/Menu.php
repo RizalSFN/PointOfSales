@@ -59,4 +59,9 @@ class Menu extends Model
     {
         return 'Rp ' . number_format($this->harga, 0, ',', '.');
     }
+
+    public function scopeMenuStatus($query, $shift)
+    {
+        return $query->where('status', $shift);
+    }
 }
